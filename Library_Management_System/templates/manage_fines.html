@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Fines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <h1>Manage Fines</h1>
+    <a href="{{ url_for('add_fine') }}">Add Fine</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Member Username</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date Assessed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fine in fines %}
+            <tr>
+                <td>{{ fine[1] }}</td>
+                <td>{{ fine[2] }}</td>
+                <td>{{ fine[3] }}</td>
+                <td>{{ fine[4] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_fine', fine_id=fine[0]) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

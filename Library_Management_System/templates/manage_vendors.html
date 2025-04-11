@@ -1,0 +1,35 @@
+<!-- templates/manage_vendors.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Vendors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <h1>Vendor List</h1>
+    <a href="{{ url_for('add_vendor') }}">Add New Vendor</a><br><br>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendor in vendors %}
+            <tr>
+                <td>{{ vendor[0] }}</td>
+                <td>{{ vendor[1] }}</td>
+                <td>{{ vendor[2] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_vendor_by_id', vendor_id=vendor[0]) }}" onclick="return confirm('Are you sure you want to delete this vendor?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

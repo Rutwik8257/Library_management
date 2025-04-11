@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Author List</h1>
+    <table border="1">
+        <tr>
+            <th>Author ID</th>
+            <th>Author Name</th>
+        </tr>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author[0] }}</td>
+            <td>{{ author[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('admin_dashboard') }}"><button>Back</button></a>
+</body>
+</html>

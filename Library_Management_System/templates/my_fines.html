@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Fines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <h1>My Fines</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date Assessed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fine in fines %}
+            <tr>
+                <td>{{ fine[0] }}</td>
+                <td>{{ fine[1] }}</td>
+                <td>{{ fine[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

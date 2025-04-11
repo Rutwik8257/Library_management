@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publishers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Publisher List</h1>
+    <table border="1">
+        <tr>
+            <th>Publisher ID</th>
+            <th>Publisher Name</th>
+        </tr>
+        {% for publisher in publishers %}
+        <tr>
+            <td>{{ publisher[0] }}</td>
+            <td>{{ publisher[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('admin_dashboard') }}"><button>Back</button></a>
+</body>
+</html>
